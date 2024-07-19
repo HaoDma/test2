@@ -1,0 +1,13 @@
+    public static void main(String[] args) {
+        String input1 = "abcd123.456";
+        String input2 = "abcd123";
+        System.out.println(extractNumber(input1));
+        System.out.println(extractNumber(input2));
+    }
+
+    public static String extractNumber(String input) {
+        String numberPart = input.replaceAll("[^0-9.]", "");
+        BigDecimal number = new BigDecimal(numberPart);
+        number = number.setScale(2, RoundingMode.DOWN);
+        return number.toString();
+    }
